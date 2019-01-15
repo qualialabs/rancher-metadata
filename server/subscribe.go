@@ -95,7 +95,7 @@ func (s *Subscriber) Subscribe() error {
 	s.router = router
 
 	go func() {
-		sp := revents.SkippingWorkerPool(3, nil)
+		sp := revents.SkippingWorkerPool(8, nil)
 		for {
 			s.kicker.Kick()
 			if err := s.router.RunWithWorkerPool(sp); err != nil {
